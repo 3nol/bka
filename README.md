@@ -21,7 +21,7 @@ Die Ausgabe erfolgt im JSON Format mit folgendem Schema:
 
 ## Benutzung
 
-Alle Einträge der Fahnungsliste als `list[dict]`:
+Alle Einträge der Fahndungsliste als `list[dict]`:
 
 ```py
 from BKA import BKA
@@ -29,7 +29,7 @@ from BKA import BKA
 json = BKA().get_wanted_persons()
 ```
 
-`get_wanted_persons()` besitzt außerdem einen optionalen Parameter für Pretty Printing:
+`get_wanted_persons()` besitzt außerdem einen optionalen Parameter für Pretty-Printing:
 
 ```py
 BKA().get_wanted_persons(True)
