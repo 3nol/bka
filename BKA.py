@@ -22,16 +22,16 @@ class BKA:
         wanted_persons_list = ''
         i = 1
         while True:
-            soup = BeautifulSoup(requests.get(self.site + self.list + str(i + 1)).text, 'html.parser')
+            soup = BeautifulSoup(requests.get(self.site + self.list + str(i)).text, 'html.parser')
             persons = soup.find_all('div', class_='slide teaser type-2')
             if persons:
-                for p in range(len(persons)):
+                for p in persons:
                     wanted_persons_list += '{\n' + indent_units(
-                        f'"category": "{self.__get_category(persons[p])}",\n'
-                        f'"img": "{self.__get_img(persons[p])}",\n'
-                        f'"name": "{self.__get_name(persons[p])}",\n'
+                        f'"category": "{self.__get_category(p)}",\n'
+                        f'"img": "{self.__get_img(p)}",\n'
+                        f'"name": "{self.__get_name(p)}",\n'
                         '"info": {\n'
-                        f'{indent_units(self.__get_info(persons[p]), 2)}\n'
+                        f'{indent_units(self.__get_info(p), 2)}\n'
                         '}', 2) + '\n},'
                 i += 1
             else:
