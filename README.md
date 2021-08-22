@@ -21,11 +21,16 @@ Die Ausgabe erfolgt im JSON Format mit folgendem Schema:
 
 ## Benutzung
 
-Da man auf der Website mehr Inhalte nur aktiv per Knopf laden kann, wird der Methode \
-`get_wanted_persons()` ein Parameter mitgegeben, der der Anzahl der geladenen Seiten entspricht. 
+Alle Einträge der Fahnungsliste als `list[dict]`:
 
 ```py
 from BKA import BKA
 
-json = BKA().get_wanted_persons(1)
+json = BKA().get_wanted_persons()
+```
+
+`get_wanted_persons()` besitzt außerdem einen optionalen Parameter für Pretty Printing:
+
+```py
+BKA().get_wanted_persons(True)
 ```
